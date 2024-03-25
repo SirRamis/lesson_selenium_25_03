@@ -10,4 +10,4 @@ browser.find_element(By.XPATH, '//*[@id="login-button"]').click()
 assert browser.current_url == 'https://www.saucedemo.com/v1/inventory.html'
 
 browser.quit()
-dgfdg
+dfg
