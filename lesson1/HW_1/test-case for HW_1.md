@@ -1,4 +1,4 @@
-    Авторизация
+       Авторизация
 1. Авторизация используя корректные данные (standard_user, secret_sauce)
  1.1 Открыть url: https://www.saucedemo.com/
  1.2 Ввести "standard_user"
