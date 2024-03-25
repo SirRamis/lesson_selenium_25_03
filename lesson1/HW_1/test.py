@@ -1,0 +1,15 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import pytest
+import time
+
+browser.get('https://www.saucedemo.com/inventory.html')
+
+browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
+browser.find_element(By.XPATH, '//*[@id="password"]').send_keys('secret_sauce')
+browser.find_element(By.XPATH, '//*[@id="login-button"]').click()
+browser.find_element(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]').click()
+
+assert browser.find_elements(By.XPATH,'//*[@id="cart_contents_container"]/div/div[1]/div[4]'), 'В корзине нет товаров'
+
+browser.quit()

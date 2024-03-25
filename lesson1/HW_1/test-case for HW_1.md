@@ -1,8 +1,21 @@
     Авторизация
 1. Авторизация используя корректные данные (standard_user, secret_sauce)
-1.1 Открыть url: https://www.saucedemo.com/
-1.2 Ввести "standard_user"
-1.3 Ввести "secret_sauce"
-1.4 Кликнуть "Login"
-1.5 Проверить, что мы перешли на новый url: https://www.saucedemo.com/v1/inventory.html
+ 1.1 Открыть url: https://www.saucedemo.com/
+ 1.2 Ввести "standard_user"
+ 1.3 Ввести "secret_sauce"
+ 1.4 Кликнуть "Login"
+ 1.5 Проверить, что мы перешли на новый url: https://www.saucedemo.com/inventory.html
+
 2. Авторизация используя некорректные данные (user, user)
+ 2.1 Открыть url: https://www.saucedemo.com/
+ 2.2 Ввести "user"
+ 2.3 Ввести "sauce"
+ 2.4 Кликнуть "Login"
+ 2.5 Проверить, что мы перешли на новый url: https://www.saucedemo.com/inventory.html
+
+       Корзина
+
+3. Добавление товара в корзину через каталог
+4. Удаление товара из корзины через корзину
+5. Добавление товара в корзину из карточки товара
+6. Удаление товара из корзины через карточку товара
