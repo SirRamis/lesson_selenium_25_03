@@ -36,7 +36,7 @@ def test3_add_item():
 
     assert browser.find_elements(By.XPATH,'//*[@id="shopping_cart_container"]/a/span'), 'В корзине нет товаров'
 
-    time.sleep(5)
+    time.sleep(2)
     browser.quit()
 
     # product = browser.find_element(By.XPATH, '//a[@id="item_4_title_link"]')
