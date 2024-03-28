@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 import pytest
 import time
 
+browser = webdriver.Chrome()
+
 browser.get('https://www.saucedemo.com/inventory.html')
 
 browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
