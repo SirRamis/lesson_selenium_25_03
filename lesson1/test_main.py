@@ -12,3 +12,5 @@ def test_auth_positive():
     assert browser.current_url == 'https://www.saucedemo.com/v1/inventory.html','Не прошел тест'
 
     browser.quit()
+
+    assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"

@@ -90,3 +90,25 @@ def test6_deleit_item_in_cart():
 
     time.sleep(4)
     browser.quit()
+
+def test7_go_to_card():
+    browser.get('https://www.saucedemo.com/')
+
+    browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
+    browser.find_element(By.XPATH, '//*[@id="password"]').send_keys('secret_sauce')
+    browser.find_element(By.XPATH, '//*[@id="login-button"]').click() # Логинится
+    browser.find_element(By.XPATH, '//*[@id="item_4_img_link"]').click()# Проходит в карточку через картинку
+    time.sleep(2)
+
+    #select_element = browser.find_element('//*[@id="item_4_img_link"]')
+
+    # Проверим, был ли элемент выбран
+    # if select_element.is_selected():
+    #     print("Элемент выбран")
+    # else:
+    #     print("Элемент не выбран")
+
+    assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
+
+    time.sleep(4)
+    browser.quit()
