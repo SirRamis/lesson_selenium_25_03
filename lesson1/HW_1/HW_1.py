@@ -111,4 +111,14 @@ def test7_go_to_card():
     assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
 
     time.sleep(4)
-    browser.quit()
+    #browser.quit()
+
+def test8_go_to_card2():
+    browser.get('https://www.saucedemo.com/')
+
+    browser.find_element(By.XPATH, '//*[@id="item_4_title_link"]').click() #переход к карточке товара после клика по названию товара
+
+    assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
+
+    time.sleep(4)
+    #browser.quit()
