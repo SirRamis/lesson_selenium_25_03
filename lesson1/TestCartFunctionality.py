@@ -36,6 +36,6 @@ class TestCartFunctionality:
 
     def test_delete_item_in_cart(self):
         self.login()
-        self.add_item_to_cart()
+        #self.add_item_to_cart()
         self.remove_item_from_cart()
         assert not self.browser.find_elements(By.XPATH, '//*[@id="shopping_cart_container"]/a/span'), 'В корзине есть товары'

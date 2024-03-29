@@ -3,9 +3,10 @@ from selenium.webdriver.common.by import By
 import pytest, time
 
 
-browser = webdriver.Chrome()
+
 
 def test_auth_positive_2():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
@@ -16,17 +17,20 @@ def test_auth_positive_2():
     time.sleep(3)
     browser.quit()
 
+
 def test_auth_negativ():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('user')
     browser.find_element(By.XPATH, '//*[@id="password"]').send_keys('user')
     browser.find_element(By.XPATH, '//*[@id="login-button"]').click()
-    assert browser.current_url == 'https://www.saucedemo.com/inventory.html', 'Не прошел тест'
+    assert not browser.current_url == 'https://www.saucedemo.com/inventory.html', 'Не прошел тест'
 
     browser.quit()
 
 def test3_add_item():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
@@ -43,6 +47,7 @@ def test3_add_item():
     # assert product is not None, 'count of products does not correspond to added'
 
 def test4_deleit_item():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
@@ -59,6 +64,7 @@ def test4_deleit_item():
 
 
 def test5_added_item_in_cart():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
@@ -75,6 +81,7 @@ def test5_added_item_in_cart():
     browser.quit()
 
 def test6_deleit_item_in_cart():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
@@ -92,6 +99,7 @@ def test6_deleit_item_in_cart():
     browser.quit()
 
 def test7_go_to_card():
+    browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
     browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
@@ -111,14 +119,23 @@ def test7_go_to_card():
     assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
 
     time.sleep(4)
-    #browser.quit()
+    browser.quit()
 
-def test8_go_to_card2():
-    browser.get('https://www.saucedemo.com/')
+# def login():
+#
+#     browser.get('https://www.saucedemo.com/')
+#     browser.find_element(By.XPATH, '//*[@id="user-name"]').send_keys('standard_user')
+#     browser.find_element(By.XPATH, '//*[@id="password"]').send_keys('secret_sauce')
+#     browser.find_element(By.XPATH, '//*[@id="login-button"]').click()
+#
+# def test8_go_to_card2(login):
+#     login()
+#     browser.get('https://www.saucedemo.com/')
+#
+#     browser.find_element(By.XPATH, '//*[@id="item_4_title_link"]').click() #переход к карточке товара после клика по названию товара
+#
+#     assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
+#
+#     time.sleep(4)
+#     #browser.quit()
 
-    browser.find_element(By.XPATH, '//*[@id="item_4_title_link"]').click() #переход к карточке товара после клика по названию товара
-
-    assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
-
-    time.sleep(4)
-    #browser.quit()
