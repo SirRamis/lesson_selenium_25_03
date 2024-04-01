@@ -5,7 +5,7 @@ import pytest, time
 
 
 
-def test_auth_positive_2():
+def test1_auth_positive_2():
     browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
@@ -18,7 +18,7 @@ def test_auth_positive_2():
     browser.quit()
 
 
-def test_auth_negativ():
+def test2_auth_negativ():
     browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
 
