@@ -1,21 +1,34 @@
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pytest, time
 
+USER_NAME = ('xpath', '//*[@id="user-name"]')
+PASSWORD = ('xpath', '//*[@id="password"]')
+LOGIN = ('xpath', '//*[@id="login-button"]')
+TITLE = ('xpath', '//*[@id="header_container"]/div[2]/span')
 
 
-
-def test1_auth_positive_2():
+@pytest.fixture()
+def login():
     browser = webdriver.Chrome()
     browser.get('https://www.saucedemo.com/')
-
-    browser.find_element('xpath', '//*[@id="user-name"]').send_keys('standard_user')
-    browser.find_element(By.XPATH, '//*[@id="password"]').send_keys('secret_sauce')
-    browser.find_element(By.XPATH, '//*[@id="login-button"]').click()
-    assert browser.current_url == 'https://www.saucedemo.com/inventory.html', 'Не прошел тест'
-
+    browser.find_element(*USER_NAME).send_keys('standard_user')
+    browser.find_element(*PASSWORD).send_keys('secret_sauce')
+    browser.find_element(*LOGIN).click()
     time.sleep(3)
+    yield browser
     browser.quit()
+
+
+
+
+def test1_auth_positive(login):
+    browser = login
+    actual_text = browser.find_element(*TITLE).text
+    expected_text = "Products"
+    assert actual_text == expected_text
+
 
 
 def test2_auth_negativ():
