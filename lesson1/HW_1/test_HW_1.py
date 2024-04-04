@@ -134,21 +134,14 @@ def test7_go_to_card():
     time.sleep(4)
     browser.quit()
 
-# def login():
-#
-#     browser.get('https://www.saucedemo.com/')
-#     browser.find_element(By.XPATH, '//*[@id="user-name"]').send_keys('standard_user')
-#     browser.find_element(By.XPATH, '//*[@id="password"]').send_keys('secret_sauce')
-#     browser.find_element(By.XPATH, '//*[@id="login-button"]').click()
-#
-# def test8_go_to_card2(login):
-#     login()
-#     browser.get('https://www.saucedemo.com/')
-#
-#     browser.find_element(By.XPATH, '//*[@id="item_4_title_link"]').click() #переход к карточке товара после клика по названию товара
-#
-#     assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
-#
-#     time.sleep(4)
-#     #browser.quit()
+
+def test8_go_to_card2(driver):
+
+    browser.get('https://www.saucedemo.com/')
+    browser.find_element(By.XPATH, '//*[@id="item_4_title_link"]').click() #переход к карточке товара после клика по названию товара
+    assert browser.current_url == 'https://www.saucedemo.com/inventory-item.html?id=4', "Элемент не выбран"
+
+    time.sleep(4)
+    browser.quit()
+
 
