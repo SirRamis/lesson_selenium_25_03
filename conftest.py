@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
 
-@pytest.fixture
+@pytest.fixture()
 def driver():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--incognito")

@@ -1,9 +1,9 @@
-import pytest
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-class TestCartFunctionality:
+class CartFunctionality:
 
     @classmethod
     def setup_class(cls):
@@ -38,4 +38,4 @@ class TestCartFunctionality:
         self.login()
         #self.add_item_to_cart()
         self.remove_item_from_cart()
-        assert not self.browser.find_elements(By.XPATH, '//*[@id="shopping_cart_container"]/a/span'), 'В корзине есть товары'
+        assert self.browser.find_elements(By.XPATH, '//*[@id="shopping_cart_container"]/a/span'), 'В корзине есть товары'

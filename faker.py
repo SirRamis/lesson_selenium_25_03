@@ -1,3 +1,7 @@
+class Faker:
+    pass
+
+
 from faker import Faker #импортируем Faker
 fake = Faker() #создаем обьект класса Faker
 
